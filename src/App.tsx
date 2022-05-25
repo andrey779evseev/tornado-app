@@ -1,8 +1,4 @@
 import {useState} from 'react'
-import doneImg from './assets/done.svg'
-import closeImg from './assets/close.svg'
-import tornadoImg from './assets/tornado.svg'
-import houseImg from './assets/house.png'
 
 
 class Cell {
@@ -150,16 +146,16 @@ const App = () => {
       <div className='text-lg text-white/80'>Введите размерность матрицы</div>
       <div className="flex">
         { matrix.length !== 0 ?
-          <img className='w-[30px] h-[30px]' src={doneImg} alt=""/> :
-          <img className='w-[30px] h-[30px]' src={closeImg} alt=""/>}
+          <img className='w-[30px] h-[30px]' src='/tornado-app/assets/done.svg' alt=""/> :
+          <img className='w-[30px] h-[30px]' src='/tornado-app/assets/close.svg' alt=""/>}
         <input type="number" value={size} onChange={e => setSize(Number(e.target.value))} className='ml-2 border-2 border-blue-500 bg-blue-300 rounded outline-none text-white'/>
         <button onClick={fillMatrix} className="border-2 border-indigo-500 bg-indigo-300 rounded px-2 ml-2 text-white">Применить</button>
       </div>
       <div className='text-lg text-white/80'>Введите количество торнадо</div>
       <div className="flex">
         { !!matrix && matrix.some(x => x.some(y => y.hasTornado)) ?
-          <img className='w-[30px] h-[30px]' src={doneImg} alt=""/> :
-          <img className='w-[30px] h-[30px]' src={closeImg} alt=""/>}
+          <img className='w-[30px] h-[30px]' src='/tornado-app/assets/done.svg' alt=""/> :
+          <img className='w-[30px] h-[30px]' src='/tornado-app/assets/close.svg' alt=""/>}
         <input type="number" value={countTornados} onChange={e => setCountTornados(Number(e.target.value))}  className='ml-2 border-2 border-blue-500 bg-blue-300 rounded outline-none text-white'/>
         <button onClick={randomTornados} className="border-2 border-indigo-500 bg-indigo-300 rounded px-2 ml-2 text-white">Применить</button>
       </div>
@@ -171,8 +167,8 @@ const App = () => {
                 {
                   row.map((cell, j) => (
                     <div className={`w-[60px] h-[60px] border ${isNear(i, j) ? 'border-blue-300 bg-blue-400 hover:cursor-pointer hover:opacity-50' : 'border-green-300 bg-emerald-400'}`} key={j} onClick={() => step(i, j)}>
-                      {cell.hasTornado ? <img className='w-[50px] h-[50px] mt-1 ml-1' src={tornadoImg} alt=""/> : null}
-                      {cell.hasHouse ? <img className='w-[50px] h-[50px] mt-1 ml-1' src={houseImg} alt=""/> : null}
+                      {cell.hasTornado ? <img className='w-[50px] h-[50px] mt-1 ml-1' src='/tornado-app/assets/tornado.svg' alt=""/> : null}
+                      {cell.hasHouse ? <img className='w-[50px] h-[50px] mt-1 ml-1' src='/tornado-app/assets/house.png' alt=""/> : null}
                     </div>
                   ))
                 }
